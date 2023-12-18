@@ -29,9 +29,9 @@ class VigenereCipheringMachine {
       const direct = true;
     }
   }
-  function cheakLatin(currentChar) {
-    return currentChar.match(/[a-zA-Z]/i)
-  }
+  //function cheakLatin(currentChar) {
+  //  return currentChar.match(/[a-zA-Z]/i)
+  //}
   encrypt(message, key) {
     let encrypted = [];
     // алгоритм: для строки message и key должны быть одной длины. key обрезается или продлевается

@@ -51,7 +51,7 @@ function repeater(str, options) {
   return baseStr;
   // remove line with error and write your code here
 }
-console.log(repeater('la', { repeatTimes: 3 }));
+//console.log(repeater('la', { repeatTimes: 3 }));
 //console.log(repeater('STRING', { repeatTimes: 3, separator: '**', addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00' }));
 module.exports = {
   repeater

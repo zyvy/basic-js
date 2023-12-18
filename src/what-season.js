@@ -12,7 +12,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason(date) {
-  console.log(date);
+  //console.log(date);
   let dayOf;
   let monthOf;
   // check reality
