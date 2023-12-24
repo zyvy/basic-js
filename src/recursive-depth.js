@@ -34,11 +34,11 @@ class DepthCalculator {
   return myMax;
 }
 }
-const depthCalc = new DepthCalculator();
-console.log(depthCalc.calculateDepth([1, 2, 3,4]))
+//const depthCalc = new DepthCalculator();
+//console.log(depthCalc.calculateDepth([1, 2, 3,4]))
 //console.log(depthCalc.calculateDepth([1, [[[[[]]]]], 9, [0, [[]]]]));
-console.log(depthCalc.calculateDepth([1, [8, [[]]], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]], []]]], []]]]]]]]], []]]], []]]]]]]]]], 2, 3, [8, [[[[[[[[[[[[[[]]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]]))
-console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5, [9]], 6, [7,8]]))
+//console.log(depthCalc.calculateDepth([1, [8, [[]]], [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]], []]]], []]]]]]]]], []]]], []]]]]]]]]], 2, 3, [8, [[[[[[[[[[[[[[]]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]]))
+//console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5, [9]], 6, [7,8]]))
 module.exports = {
   DepthCalculator,
 };
