@@ -50,11 +50,11 @@ class VigenereCipheringMachine {
 
     let encrypted = [];
 
-    console.log('mesg, key:',message, fullKey)
+  //  console.log('mesg, key:',message, fullKey)
 
     function getChars(something) {
       const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-      console.log('func get', something);
+    //  console.log('func get', something);
       if (Number.isInteger(something)) {
         return alphabet[Number(something)];
       } else if (alphabet.indexOf(something) >= 0) {
@@ -67,18 +67,22 @@ class VigenereCipheringMachine {
     for (let indx=0; indx < message.length; indx++) {
       if (alphabet.indexOf(message[indx]) >= 0) {
       const m = getChars(message[indx]);
-      console.log('looking for', message[indx]);
+   //   console.log('looking for', message[indx]);
       const k = getChars(fullKey[ka]);
-      console.log('func return',m,' ', k, '|', indx, ka)
+    //  console.log('func return',m,' ', k, '|', indx, ka)
       const c = (m + k) % 26;
       encrypted.push(getChars(c));
       ka +=1;
     } else {
-      console.log('idx, append', indx, message[indx])
+    //  console.log('idx, append', indx, message[indx])
       encrypted.push(message[indx]);
     }
   }
-    return encrypted.join("");
+  if (this.cipherWay) {
+    return encrypted.join('')
+  } else {
+    return encrypted.reverse().join("");
+  }
     // remove line with error and write your code here
   
 }
@@ -87,7 +91,7 @@ class VigenereCipheringMachine {
     // remove line with error and write your code here
   }
 }
-const directMachine = new VigenereCipheringMachine();
+const directMachine = new VigenereCipheringMachine(false);
 console.log(directMachine.encrypt("attack at dawn!", "alphonse"));
 //=> 'AEIHQX SX DLLU!'
 
