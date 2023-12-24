@@ -29,6 +29,9 @@ class VigenereCipheringMachine {
   }
 
   encrypt(message, key) {
+    if (message === undefined || key === undefined) {
+      throw new Error('Incorrect arguments!');
+    }
     message = message.toUpperCase();
     let tempMessage = message.split(' ').join('');
     const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
@@ -50,7 +53,7 @@ class VigenereCipheringMachine {
 
     let encrypted = [];
 
-  //  console.log('mesg, key:',message, fullKey)
+   // console.log('mesg, key:','\n',message, '\n',fullKey)
 
     function getChars(something) {
       const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
@@ -79,20 +82,66 @@ class VigenereCipheringMachine {
     }
   }
   if (this.cipherWay) {
-    return encrypted.join('')
+    return this, encrypted.join('')
   } else {
-    return encrypted.reverse().join("");
+    return this, encrypted.reverse().join("");
   }
     // remove line with error and write your code here
   
 }
   decrypt(message, key) {
-    throw new NotImplementedError("Not implemented");
+    if (message === undefined || key === undefined) {
+      throw new Error('Incorrect arguments!');
+    }
+    
+    function getChars(something) {
+      const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    //  console.log('func get', something);
+      if (Number.isInteger(something)) {
+        return alphabet[Number(something)];
+      } else if (alphabet.indexOf(something) >= 0) {
+        return alphabet.indexOf(something);
+      } else {
+        return something;
+      }
+    }
+
+
+
+
+    const alphabet = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+    let tempMessage = message.split(' ').join('');
+    let decryped = [];
+    let fullKey = key.repeat(Math.ceil(tempMessage.length / key.length)).toUpperCase();
+    let ka = 0;
+    if (this.cipherWay = false) {
+      message =  message.reverse();
+    }
+//    console.log('cippertext', message);
+ //   console.log('key', fullKey);
+    for (let indx = 0; indx < message.length; indx++){
+      if (alphabet.indexOf(message[indx]) < 0){
+        decryped.push(message[indx]);
+      } else {
+        const c = getChars(message[indx]);
+        const k = getChars(fullKey[ka]);
+        let m = (c - k) % 26;
+        if (m < 0) {
+          m = (c - k + 26) % 26;
+        }
+        decryped.push(getChars(m));
+        ka += 1;
+      }
+    }
+    return this, decryped.join('')
+
+
     // remove line with error and write your code here
   }
 }
-const directMachine = new VigenereCipheringMachine(false);
+const directMachine = new VigenereCipheringMachine();
 console.log(directMachine.encrypt("attack at dawn!", "alphonse"));
+console.log(directMachine.decrypt('AEIHQX SX DLLU!', 'alphonse'));
 //=> 'AEIHQX SX DLLU!'
 
 module.exports = {
